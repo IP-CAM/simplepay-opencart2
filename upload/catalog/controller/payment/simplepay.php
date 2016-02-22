@@ -45,7 +45,6 @@ class ControllerPaymentSimplePay extends Controller {
 
 		$order_status_complete = 5;
 		$order_status_failed = 10;
-		$reference = $this->request->post['reference'];
 		
 		if ($this->config->get('simplepay_test')) {
 			$private_key = $this->config->get('simplepay_private_test_key');
@@ -74,9 +73,14 @@ class ControllerPaymentSimplePay extends Controller {
 		    'Content-Type: application/json',                                                                                
 		    'Content-Length: ' . strlen($data_string)                                                                       
 		));
-		curl_exec($ch);
-		$response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		
+		$curl_response = curl_exec($ch);
+		$curl_response = preg_split("/\r\n\r\n/",$curl_response);
+		$response_content = $curl_response[1];
+		$json_response = json_decode(chop($response_content), true);
+		
+		$response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
 		curl_close($ch);
 
 		$json = array();

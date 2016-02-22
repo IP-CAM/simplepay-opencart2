@@ -26,13 +26,12 @@ function formatAmount(amount) {
 $('#button-confirm').bind('click', function() {
   $('#button-confirm').attr('disabled', true);
 
-  function processPayment (token, reference) {
+  function processPayment (token) {
     $.ajax({
       url: 'index.php?route=payment/simplepay/send',
       type: 'post',
       data: {
-        token: token,
-        reference: reference
+        token: token
       },
       dataType: 'json',
       success: function(response) {
