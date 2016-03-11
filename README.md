@@ -1,4 +1,4 @@
-# Simplepay Opencart Payment Gateway
+# SimplePay Payment Gateway for OpenCart v2.x
 
 SimplePay is an Online Payment Gateway for the Nigerian market.
 
@@ -11,13 +11,6 @@ Super-fast account activation. Top-notch customer support. Support for all curre
 * cURL 7.30.x or higher
 
 ## Installation
-### Opencart 1.x
-1. Upload the contents of "simplepay-opencart" directory to the folder where Opencart is installed
-2. Go to Opencart Admin panel -> Extensions -> Payments to enable SimplePay payment gateway
-3. Register a free account on https://www.simplepay.ng and copy the Api Keys to insert in Opencart admin
-4. Go to Opencart Admin panel -> Extensions -> Payments and press Edit to set up SimplePay settings and enable it as payment method
-
-### Opencart 2.x
 1. Compress the "upload" folder and rename it to "simplepay-opencart.ocmod.zip"
 2. Go to Opencart Admin Panel -> Extensions -> Extension Installer and upload the "simplepay-opencart.ocmod.zip" archive
 
