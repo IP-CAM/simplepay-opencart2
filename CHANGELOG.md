@@ -1,3 +1,10 @@
+## 1.0.2 (April 6, 2016)
+
+- Add payment method sort order
+- Add SimplePay logo to checkout
+- Fix currency
+- Fix required fields validations
+
 ## 1.0.1 (February 22, 2016)
 
 - Updated verify payment

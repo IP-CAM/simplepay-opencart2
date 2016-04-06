@@ -40,27 +40,21 @@
               </select>
             </div>
           </div>
-          
-          <div class="form-group required">
+
+          <div class="form-group">
             <label class="col-sm-2 control-label" for="entry-private-live-key"><?php echo $entry_private_live_key; ?></label>
             <div class="col-sm-10">
               <input type="text" name="simplepay_private_live_key" value="<?php echo $simplepay_private_live_key; ?>" placeholder="<?php echo $entry_private_live_key; ?>" id="entry-private-live-key" class="form-control"/>
-              <?php if ($error_private_live_key) { ?>
-                <div class="text-danger"><?php echo $error_private_live_key; ?></div>
-              <?php } ?>
             </div>
           </div>
-          
-          <div class="form-group required">
+
+          <div class="form-group">
             <label class="col-sm-2 control-label" for="entry-public-live-key"><?php echo $entry_public_live_key; ?></label>
             <div class="col-sm-10">
               <input type="text" name="simplepay_public_live_key" value="<?php echo $simplepay_public_live_key; ?>" placeholder="<?php echo $entry_public_live_key; ?>" id="entry-public-live-key" class="form-control"/>
-              <?php if ($error_public_live_key) { ?>
-                <div class="text-danger"><?php echo $error_public_live_key; ?></div>
-              <?php } ?>
             </div>
           </div>
-          
+
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="entry-private-test-key"><?php echo $entry_private_test_key; ?></label>
             <div class="col-sm-10">
@@ -70,7 +64,7 @@
               <?php } ?>
             </div>
           </div>
-          
+
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="entry-public-test-key"><?php echo $entry_public_test_key; ?></label>
             <div class="col-sm-10">
@@ -81,13 +75,10 @@
             </div>
           </div>
 
-          <div class="form-group required">
+          <div class="form-group">
             <label class="col-sm-2 control-label" for="entry-description"><span data-toggle="tooltip" title="<?php echo $help_description; ?>"><?php echo $entry_description; ?></span></label>
             <div class="col-sm-10">
               <input type="text" name="simplepay_description" value="<?php echo $simplepay_description; ?>" placeholder="<?php echo $entry_description; ?>" id="entry-description" class="form-control" maxlength="50"/>
-              <?php if ($error_description) { ?>
-                <div class="text-danger"><?php echo $error_description; ?></div>
-              <?php } ?>
             </div>
           </div>
 
@@ -97,7 +88,7 @@
               <input type="text" name="simplepay_image" value="<?php echo $simplepay_image; ?>" placeholder="<?php echo $entry_image; ?>" id="entry-image" class="form-control" />
             </div>
           </div>
-          
+
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
             <div class="col-sm-10">
@@ -110,6 +101,13 @@
                   <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
                 <?php } ?>
               </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="entry-sort-order"><?php echo $entry_sort_order; ?></label>
+            <div class="col-sm-10">
+              <input type="text" name="simplepay_sort_order" value="<?php echo $simplepay_sort_order; ?>" placeholder="<?php echo $entry_sort_order; ?>" id="entry-sort-order" class="form-control"/>
             </div>
           </div>
         </form>

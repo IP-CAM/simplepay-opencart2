@@ -21,7 +21,7 @@ class ControllerPaymentSimplePay extends Controller {
 		$data['city'] = $order_info['payment_city'];
 		$data['country'] = $order_info['payment_iso_code_2'];
 		$data['amount'] = $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false);
-		$data['currency'] = $this->currency->getCode();
+		$data['currency'] = $order_info['currency_code'];
 		$data['image'] = $this->config->get('simplepay_image');
 
 		if ($this->config->get('simplepay_test')) {
@@ -78,7 +78,7 @@ class ControllerPaymentSimplePay extends Controller {
 		$curl_response = preg_split("/\r\n\r\n/",$curl_response);
 		$response_content = $curl_response[1];
 		$json_response = json_decode(chop($response_content), true);
-		
+
 		$response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 		curl_close($ch);

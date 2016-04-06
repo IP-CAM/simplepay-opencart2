@@ -37,6 +37,7 @@ class ControllerPaymentSimplePay extends Controller {
 		$data['entry_image'] = $this->language->get('entry_image');
 		
 		$data['entry_status'] = $this->language->get('entry_status');
+		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 		
 		$data['help_test'] = $this->language->get('help_test');
 		$data['help_description'] = $this->language->get('help_description');
@@ -51,18 +52,6 @@ class ControllerPaymentSimplePay extends Controller {
 			$data['error_warning'] = '';
 		}
 
-		if (isset($this->error['private_live_key'])) {
-			$data['error_private_live_key'] = $this->error['private_live_key'];
-		} else {
-			$data['error_private_live_key'] = '';
-		}
-
-		if (isset($this->error['public_live_key'])) {
-			$data['error_public_live_key'] = $this->error['public_live_key'];
-		} else {
-			$data['error_public_live_key'] = '';
-		}
-
 		if (isset($this->error['private_test_key'])) {
 			$data['error_private_test_key'] = $this->error['private_test_key'];
 		} else {
@@ -73,18 +62,6 @@ class ControllerPaymentSimplePay extends Controller {
 			$data['error_public_test_key'] = $this->error['public_test_key'];
 		} else {
 			$data['error_public_test_key'] = '';
-		}
-
-		if (isset($this->error['description'])) {
-			$data['error_description'] = $this->error['description'];
-		} else {
-			$data['error_description'] = '';
-		}
-
-		if (isset($this->error['image'])) {
-			$data['error_image'] = $this->error['image'];
-		} else {
-			$data['error_image'] = '';
 		}
 
 		$data['breadcrumbs'] = array();
@@ -156,6 +133,12 @@ class ControllerPaymentSimplePay extends Controller {
 			$data['simplepay_status'] = $this->config->get('simplepay_status');
 		}
 
+		if (isset($this->request->post['simplepay_sort_order'])) {
+			$data['simplepay_sort_order'] = $this->request->post['simplepay_sort_order'];
+		} else {
+			$data['simplepay_sort_order'] = $this->config->get('simplepay_sort_order');
+		}
+
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
@@ -171,28 +154,12 @@ class ControllerPaymentSimplePay extends Controller {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
-		if (!$this->request->post['simplepay_private_live_key']) {
-			$this->error['private_live_key'] = $this->language->get('error_private_live_key');
-		}
-
-		if (!$this->request->post['simplepay_public_live_key']) {
-			$this->error['public_live_key'] = $this->language->get('error_public_live_key');
-		}
-
 		if (!$this->request->post['simplepay_private_test_key']) {
 			$this->error['private_test_key'] = $this->language->get('error_private_test_key');
 		}
 
 		if (!$this->request->post['simplepay_public_test_key']) {
 			$this->error['public_test_key'] = $this->language->get('error_public_test_key');
-		}
-
-		if (!$this->request->post['simplepay_description']) {
-			$this->error['description'] = $this->language->get('error_description');
-		}
-
-		if (!$this->request->post['simplepay_image']) {
-			$this->error['image'] = $this->language->get('error_image');
 		}
 
 		return !$this->error;
