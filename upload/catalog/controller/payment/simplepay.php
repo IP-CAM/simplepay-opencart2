@@ -29,11 +29,15 @@ class ControllerPaymentSimplePay extends Controller {
 		} else {
 			$data['key'] = $this->config->get('simplepay_public_live_key');
 		}
-		
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/simplepay.tpl')) {
-			return $this->load->view($this->config->get('config_template') . '/template/payment/simplepay.tpl', $data);
+
+		if (version_compare(VERSION, '2.2.0.0', '<')) {
+			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/simplepay.tpl')) {
+				return $this->load->view($this->config->get('config_template') . '/template/payment/simplepay.tpl', $data);
+			} else {
+				return $this->load->view('default/template/payment/simplepay.tpl', $data);
+			}
 		} else {
-			return $this->load->view('default/template/payment/simplepay.tpl', $data);
+			return $this->load->view('payment/simplepay', $data);
 		}
 	}
 
@@ -78,7 +82,7 @@ class ControllerPaymentSimplePay extends Controller {
 		$curl_response = preg_split("/\r\n\r\n/",$curl_response);
 		$response_content = $curl_response[1];
 		$json_response = json_decode(chop($response_content), true);
-
+		
 		$response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 		curl_close($ch);

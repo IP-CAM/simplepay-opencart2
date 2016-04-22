@@ -1,3 +1,7 @@
+## 1.0.3 (April 22, 2016)
+
+- Add support for version 2.2.0.0
+
 ## 1.0.2 (April 6, 2016)
 
 - Add payment method sort order
