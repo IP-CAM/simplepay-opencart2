@@ -10,7 +10,9 @@
             url: 'index.php?route=payment/simplepay/send',
             type: 'post',
             data: {
-                token: token
+                token: token,
+                amount: SimplePay.amountToLower('<?php echo $amount; ?>'),
+                currency: '<?php echo $currency; ?>'
             },
             dataType: 'json',
             success: function (response) {
